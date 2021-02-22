@@ -1,0 +1,171 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/pretty-checkbox.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+  <title>My Coffee</title>
+</head>
+<body>
+  
+
+  <div class="my-form container p-5 my-5 rounded border border-warning">
+    <form class="contact1-form validate-form" method="post" novalidate >
+      {% csrf_token %}
+      {% load static %}
+        <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+          <link rel="stylesheet" href="{% static 'css/pretty-checkbox.min.css'%}">
+          <link rel="stylesheet" href="{% static 'css/style.css' %}">
+          
+          <title>My Coffee</title>
+      </head>
+      <body>
+          
+      
+          <div class="my-form container p-5 my-5 rounded border border-warning">
+            
+            {% include "includes/form.html" %}
+      
+          </div>
+      
+          <script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
+          <script src="{% static 'js/popper.min.js' %}"></script>
+          <script src="{% static 'js/bootstrap.min.js' %}"></script>
+          <script>
+              $(function () {
+                  $('[data-toggle="popover"]').popover()
+              })
+              $(".year").text( (new Date).getFullYear() );
+          </script>
+      </body>
+      </html>
+          <h2 class="text-center">Sign Up</h2>
+          <hr>
+
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" class="form-control" name="first_name" {% if form.is_bound %}value="{{ form.first_name.value }}"{% endif %} required>
+                  {% for err in form.first_name.errors %}
+                  <small class="text-danger ml-2">{{ err }}</small><br>
+              {% endfor %}
+
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" class="form-control" name="last_name" id="inputLastName" {% if form.is_bound %}value="{{ form.last_name.value }}"{% endif %} required>
+                  {% for err in form.last_name.errors %}
+                  <small class="text-danger ml-2">{{ err }}</small><br>
+              {% endfor %}
+              
+              
+                </div>
+
+          </div>
+
+          <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control"  name="Address" placeholder="1234 Main St" {% if form.is_bound %}value="{{ form.Address.value }}"{% endif %} required>
+              {% for err in form.Address.errors %}
+              <small class="text-danger ml-2">{{ err }}</small><br>
+          {% endfor %}
+            </div>
+
+          <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control"  name="Address2" placeholder="Apartment, studio, or floor"{% if form.is_bound %}value="{{ form.Address2.value }}"{% endif %} required>
+              {% for err in form.Address2.errors %}
+              <small class="text-danger ml-2">{{ err }}</small><br>
+          {% endfor %}
+            </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" name="City" {% if form.is_bound %}value="{{ form.City.value }}"{% endif %} required>
+                  {% for err in form.City.errors %}
+              <small class="text-danger ml-2">{{ err }}</small><br>
+          {% endfor %}
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="inputZip">State</label>
+                  <input type="text" class="form-control" name="State" {% if form.is_bound %}value="{{ form.State.value }}"{% endif %} required>
+                  {% for err in form.State.errors %}
+              <small class="text-danger ml-2">{{ err }}</small><br>
+          {% endfor %}
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control"  name="zip_code" placeholder="ex: 12345" {% if form.is_bound %}value="{{ form.zip_code.value }}"{% endif %} required>
+                  {% for err in form.zip_code.errors %}
+              <small class="text-danger ml-1">{{ err }}</small><br>
+          {% endfor %}
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control"  name="email"  placeholder="name@example.com" {% if form.is_bound %}value="{{ form.email.value }}"{% endif %} required>
+              {% for err in form.email.errors %}
+              <small class="text-danger ml-2">{{ err }}</small><br>
+              {% endfor %}
+          </div>
+          <div class="form-group">
+            <label for="inputUsername">Username</label>
+            <input type="text" class="form-control"  name="username" placeholder="" {% if form.is_bound %}value="{{ form.username.value }}"{% endif %} required>
+            {% for err in form.username.errors %}
+            <small class="text-danger ml-2">{{ err }}</small><br>
+            {% endfor %}
+        </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control"  name="password1"  required>
+                  {% for err in form.password1.errors %}
+                  <small class="text-danger ml-2">{{ err }}</small><br>
+                  {% endfor %}
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="inputPassword">Repeat password</label>
+                  <input type="password" class="form-control" name="password2" required>
+                  {% for err in form.password2.errors %}
+                  <small class="text-danger ml-2">{{ err }}</small><br>
+                  {% endfor %}
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="pretty p-svg p-curve p-jelly">
+                <input type="checkbox" id="inputTerms" />
+                  <div class="state p-warning">
+                      <!-- svg path -->
+                      <svg class="svg svg-icon" viewBox="0 0 20 20" >
+                          <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+                      </svg>
+                      <label>I agree to the terms of use and privacy policy</label>
+                  </div> 
+              </div>
+          </div>
+          <button type="submit" class="btn btn-warning">Sign Up</button>
+      </form>
+
+  </div>
+
+  <script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script>
+      $(function () {
+          $('[data-toggle="popover"]').popover()
+      })
+      $(".year").text( (new Date).getFullYear() );
+  </script>
+</body>
+</html>
